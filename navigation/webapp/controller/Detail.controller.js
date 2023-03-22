@@ -6,7 +6,7 @@ sap.ui.define([
     function (Controller, History, UIComponent) {
         "use strict";
 
-        return Controller.extend("navigation.controller.Overview", {
+        return Controller.extend("navigation.controller.Detail", {
 
             //Lifecycle event. Allows this._onObjectMatched to trigger when
             //attachPatternMatched event happens
