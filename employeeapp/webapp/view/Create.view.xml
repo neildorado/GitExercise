@@ -1,0 +1,64 @@
+<mvc:View controllerName="sapips.training.employeeapp.controller.Create"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+	xmlns="sap.m" 
+	xmlns:form="sap.ui.layout.form" 
+	xmlns:core="sap.ui.core">
+    <Page title="Create Employee" showNavButton="true" navButtonPress="onNavBack" >
+        <content>
+            <Panel id="idPanel1" headerText="Employee Records" class="sapUiResponsiveMargin" width="auto">
+                <form:SimpleForm>
+                    <form:content>
+                        <Label text="Employee ID" />
+                        <Input id="EmployeeID" editable="false" />
+                        <Label text="First Name" required="true"/>
+                        <Input id="FirstName" placeholder="{i18n>inputPlaceholder}" />
+                        <Label text="Last Name" required="true"/>
+                        <Input id="LastName" placeholder="{i18n>inputPlaceholder}" />
+                        <Label text="Age" required="true"/>
+                        <Input id="Age" placeholder="{i18n>inputPlaceholder}" />
+                        <Label text="Date of Hire" required="true"/>
+			            <DatePicker dateValue="{/date}"/>
+
+                        <Label text="Career Level" required="true"/>
+                        <ComboBox 
+                                showSecondaryValues= "true"
+				                items="{ path: '/CareerList',
+					                     sorter: { path: 'text' } }" 
+                                placeholder="{i18n>inputPlaceholder}" >
+				        <core:ListItem key="{CareerID}" text="{CareerLevel}" additionalText = "{CareerID}"/>
+                        </ComboBox>
+                        <Label text="Current Project" required="true"/>
+                        <ComboBox 
+                                showSecondaryValues= "true"
+				                items="{ path: '/ProjectList',
+					                     sorter: { path: 'text' } }" 
+                                placeholder="{i18n>inputPlaceholder}" >
+				        <core:ListItem key="{ProjectID}" text="{ProjectName}" additionalText = "{ProjectID}"/>
+                        </ComboBox>
+                    </form:content>
+                </form:SimpleForm>
+            </Panel>
+            <Panel id="idPanel2" headerText="Skills" class="sapUiResponsiveMargin" width="auto">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <content>
+                            <Title text="Skill" level="H2"/>
+                            <ToolbarSpacer />
+                            <Button text="Add" type="Default" press="onAddSkill" ariaHasPopup="Dialog" />
+                            <Button text="Delete" type="Reject" press="onDeleteSkill"/>
+                        </content>
+                    </OverflowToolbar>
+                </headerToolbar>
+            </Panel>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="46px" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Save" type="Emphasized" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onSaveAdd"/>
+                    <Button text="Cancel" type="Default" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onCancelAdd"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

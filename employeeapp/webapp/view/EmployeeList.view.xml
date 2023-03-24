@@ -1,0 +1,62 @@
+<mvc:View controllerName="sapips.training.employeeapp.controller.EmployeeList"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout">
+    <Table id="idEmployee"
+           items= "{ path: '/Employee',
+		   		   parameters : { expand: 'Skill' } }"
+           mode="MultiSelect"
+           inset="false"
+           class="sapUiResponsiveMargin"
+           width="auto">
+	    <headerToolbar>
+			<OverflowToolbar>
+				<content>
+					<Title text="{i18n>titleBar}" level="H2"/>
+					<ToolbarSpacer />
+                    <Label text="{i18n>search}" > </Label>
+                    <SearchField search="onSearch" width="17.5rem"/>
+					<Button text="Add" type="Default" press="onCreateEmployee"/>
+                    <Button text="Delete" type="Reject" press="onDeleteEmployee"/>
+				</content>
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column>
+				<Text text="Employee ID" />
+			</Column>
+			<Column>
+				<Text text="First Name" />
+			</Column>
+			<Column>
+				<Text text="Last Name" />
+			</Column>
+            <Column>
+				<Text text="Age" />
+			</Column>
+            <Column>
+				<Text text="Hire Date" />
+			</Column>
+            <Column>
+				<Text text="Career Level" />
+			</Column>
+            <Column>
+				<Text text="Current Project" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle" type="Navigation" press="onListItemPress" growingThreshold="20" growingScrollToLoad="true">
+				<cells>
+					<Text text="{EmployeeID}"  />
+					<Text text="{FirstName}" />
+					<Text text="{LastName}" />
+                    <Text text="{Age}" />
+                    <Text text="{DateHire}" />
+                    <Text text="{CareerLevel}" />
+                    <Text text="{CurrentProject}" />
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>
